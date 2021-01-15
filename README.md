@@ -1,6 +1,6 @@
 # CSCI 3308 113-4: Zest
 
-# To watch a tour of the project go to https://youtu.be/eb4epbzQf0M
+# To watch a tour of the project go to https://youtu.be/df6m6W5CEZM
 
 My application is a web app to help people with meal planning. The user will be able to login to the application, or register as a new member, and have all of their own information and recipes saved. Once in the application, they will be able to add their own personal information into the profile page and start to customize their own information. From there, the user will be able to add their own recipes to their account. After they add the recipes, they will be able to go to their weekly calendar page and add these to breakfast, lunch, and dinner. Once the recipes are added and the week is planned, this will then create a shopping list with correct quantities for the user to take and go shopping with. 
 
