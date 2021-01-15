@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#if the .env file already exists then delete it so that we can use new parameters
+if test -f "./.env"; then
+    rm ./.env
+fi
+
+#create teh .env file and add it to the gitignore
+touch ./.env
+
+#checks to see if the .env is already in gitignore and adds it to gitignore if not
+if ! grep -q Project/.env ../.gitignore; then
+    echo Project/.env >> ../.gitignore
+fi
+
+read -p "Database Username:" user 
+
+echo DBUSER = $user >> .env
+
+read -s -p "DataBase Password:" password 
+
+echo ""
+
+echo DBPASSWORD = $password >> .env
+
+#build the database
+PGPASSWORD=$password psql -U postgres -h localhost -c "CREATE DATABASE zest_db;"
+PGPASSWORD=$password psql -U postgres -d zest_db -h localhost -c "\i ./database/create_zest_db.sql;"
+PGPASSWORD=$password psql -U postgres -d zest_db -h localhost -c "\i ./database/load_sample_data.sql;"
+
+echo "build complete!"

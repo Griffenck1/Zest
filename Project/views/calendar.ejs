@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    	<link rel="stylesheet" href="../resources/styles.css">
+		<link rel="stylesheet" href="../resources/calendar.css">
+		<title>COVIDIOTS</title>
+</head>
+<body>
+  <%- include('navbar') %>
+    <hr class="mt-0 mb-0">
+    <br>
+    <div class="container-fluid">
+		<h1 style="text-align: center">
+			<!-- I (Orion Shea) created the dynamic date for the calendar but had merge issues
+			and sent the code to Griffen to merge -->
+			<% if(date){ %>
+				<% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
+				<% var monthYear = months[date.getMonth()] + " " + date.getFullYear(); %>
+				<%- monthYear %>
+			<% } %>
+		</h1>
+
+			<!--CALENDAR IMPLEMENTED HERE-->
+
+			<table style="width:100%" border="">
+				<!--This colgroup ensures each column has a
+				uniform width across all 7 days of the week-->
+				<colgroup>
+    			<col span="8" style="width:12%">
+  			</colgroup>
+  <tr>
+	<th style="text-align:center"></th>
+	<% if(date) { %>
+		<% var i = 0; %>
+		<% var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; %>
+		<% while(i < 7) { %>
+			<% var day = '<th style="text-align:center">' + weekdays[(date.getDay() + i)%7] + ' ' + String(date.getMonth()+1) + '/' + String(date.getDate()+i) + '</th>'; %>
+			<%- day %>
+			<% i += 1 %>
+		<% } %>
+	<% } %>
+  </tr>
+	<!--The following builds the calendar body -->
+  <% var all_meal_types = ['Breakfast', 'Lunch', 'Dinner']; %>
+  <% var row = 0 %>
+  <% while(row < 3){ %>
+	<% var tr = '<tr>'; %>
+	<%- tr %>
+	<% var header = '<th style="text-align:center; vertical-align:top;">' + all_meal_types[row] + '</th>'; %>
+	<%- header %>
+	<% if(date && meal_types && relative_dates && meal_names){ %>
+		<% var i = 0; %>
+		<% var j = 0; %>
+		<% var index; %>
+		<% var exists = 0; %>
+		<% while(i < 7) { %>
+			<% exists = 0; %>
+			<% j = 0 %>
+			<% while(j < relative_dates.length) { %>
+				<% if((relative_dates[j] == i) && (all_meal_types[row] == meal_types[j])){ %>
+					<% exists = 1; %>
+					<% index = j %>
+				<% } %>
+				<% j += 1; %>
+			<% } %>
+			<% if(exists == 1){ %>
+				<% var td = '<td><button type="button" class="btn btn-secondary"><h4>' + meal_names[index] + '</h4></button></td>'; %>
+			<% }else{ %>
+				<% var td = '<td></td>'; %>
+			<% } %>
+			<%- td %>
+			<% i += 1; %>
+		<% } %>
+	<% } %>
+	<% var tr = '</tr>'; %>
+	<%- tr %>
+	<% row += 1 %>
+  <% } %>
+</table>
+  <!--This is where the add and delete forms are inserted-->
+  <div>
+	<div class = add_delete_form style="float: left"> <%- add_form_html %> </div>
+	<div class = add_delete_form style="margin-left: 30%"> <%- delete_form_html %> </div>
+  </div>
+<br>
+
+		</div>
+	</div>
+
+</body>
+</html>

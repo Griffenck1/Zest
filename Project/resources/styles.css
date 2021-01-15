@@ -1,0 +1,98 @@
+body {
+    background-color: #272727;
+    color: #747474;
+}
+
+h1 {
+    color: #14A76C;
+}
+
+h2 {
+    color: lightgray;
+}
+
+h3 {
+    color: #FFE400;
+}
+
+h4 {
+    color: black;
+}
+
+.btn-primary {
+    background-color: #14A76C;
+    border-color: #14A76C;
+}
+
+.btn-primary:hover {
+    background-color: #747474;
+    border-color: #747474;
+}
+
+.btn-secondary {
+    background-color: #FF652F;
+    border-color: #FF652F;
+}
+
+.table-hover{
+    background-color: #747474;
+    width: 25%;
+}
+
+.btn-info {
+    background-color: #747474;
+    border-color: #747474;
+}
+
+.checkmark{
+    height: 30px;
+    width: 30px;
+    color: #14A76C;
+    background-color: #14A76C;
+    justify-content: center;
+}
+
+.table-hover{
+    background-color: white;
+    border-color: #FF652F;
+}
+
+.btn-info:hover{
+    background-color: white;
+    border-color: white;
+}
+
+td {
+    text-align: center;
+}
+
+.add_delete_form {
+    width:20%;
+}
+
+a {
+    color: #747474;
+}
+
+a:hover {
+    color: #FF652F;
+}
+
+.active {
+    color: #14A76C;
+}
+
+hr {
+    width: 90%;
+    background-color: #747474;
+}
+
+#screenshots img {
+    filter: invert(1); /*remove when actual imgs in place*/
+    max-width: 100vw;
+    max-height: 80vh;
+}
+
+.hide {
+    display: none;
+}

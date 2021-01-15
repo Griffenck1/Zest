@@ -1,0 +1,167 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    /*background-color: #272727;*/
+    background-image: linear-gradient(#171717 90%,#14A76C);
+    background-size: 100%;
+    color: #14A76C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    align-self: flex-start;
+}
+
+h1 {
+    font-size: 32;
+    color: lightgray;
+    margin-left: 1vh;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h4 {
+    color: lightgrey;
+}
+
+h6 {
+    display: flex;
+    justify-content: center;
+    color: #272727;
+}
+
+p {
+    color: lightgrey;
+}
+
+label {
+    color: #FF652F;
+}
+
+.column {
+    justify-content: right;
+    flex: 50%;
+}
+
+.btn-primary {
+    background-color: #14A76C;
+    border: none;
+}
+
+.card {
+    height: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FF652F
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form, .register-req {
+    background-color: #272727;
+    width: 50vh;
+    height: 60vh;
+    margin: auto;
+    padding: 10px;
+    transform: translateY(-10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reg-card {
+
+}
+
+.login-text {
+    color: #14A76C;
+    font-size: 32;
+    text-align: center;
+}
+
+.input-container {
+    display: flex;
+}
+
+.icon {
+    background: #14A76C;
+    color: lightgrey;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    min-width: 2rem;
+    height: 3rem;
+    padding: .9rem;
+    text-align: center;
+    align-self: flex-end;
+}
+
+input[type=text], input[type=password] {
+    display: block;
+    background-color: #747474;
+    width: 40vh;
+    height: 3rem;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    margin-top: 2vh;
+    margin-right: auto;
+    margin-left: auto;
+    color: white;
+    text-align: center;
+}
+
+::placeholder {
+    transform: translateX(-6%);
+    color: white;
+}
+
+input[value=Submit] {
+    background-color: #14A76C;
+    border: none;
+    display: block;
+    border-radius: 5px;
+    width: 10vh;
+    height: 4vh;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 1rem; 
+}
+input[value=Submit]:hover {
+    background-color: #FF652F;
+}
+
+input[value=Register] {
+    display: inline;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    color: lightgrey;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    font-family: inherit;
+    font-size: inherit;
+}
+input[value=Register]:hover {
+    color: #FF652F;
+}
